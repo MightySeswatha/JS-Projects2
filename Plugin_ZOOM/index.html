@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<script src="1.js"></script>
+	<script>
+	</script>
+	<link rel="stylesheet" href="style.css">
+	<title>Zoom</title>
+</head>
+
+<body id="body">
+
+	<div class="zoomer" onmousemove="zoom(event)" style="background-image: url(img1.jpg);">
+		<img src="img1.jpg" />
+	</div>
+
+	<div class="zoomer" onmousemove="zoom(event)" style="background-image: url(img2.png);">
+		<img src="img2.png" />
+	</div>
+
+	<div class="zoomer" onmousemove="zoom(event)" style="background-image: url(img3.png);">
+		<img src="img3.png" />
+	</div>
+
+	<script>
+		function zoom(event) {
+			let zoomer = event.currentTarget;
+
+			event.offsetX ? (offsetX = event.offsetX) : (offsetX = event.touches[0].pageX);
+			event.offsetY ? (offsetY = event.offsetY) : (offsetX = event.touches[0].pageX);
+
+			let x = offsetX / zoomer.offsetWidth * 100;
+			let y = offsetY / zoomer.offsetHeight * 100;
+
+			zoomer.style.backgroundPosition = x + "% " + y + "%";
+		}
+	</script>
+
+</body>
+
+</html>
